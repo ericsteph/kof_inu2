@@ -1,0 +1,1793 @@
+---
+title: "KOF, inchiesta congiunturale, INDUSTRIA (inu) | Industria, in Ticino"
+subtitle:
+date:
+output:
+  flexdashboard::flex_dashboard:
+  social: menu
+  source: embed
+  storyboard: yes
+  theme: yeti
+  html_document: default
+---
+
+```{r setup, include = FALSE}
+
+rm(list = ls())
+source("000_pacchetti.R", encoding = "UTF-8")
+source("00_FUNZIONI_dashboard.R", encoding = "UTF-8")
+source("00_FUNZIONI_x_figure_occupazione_attuale.R", encoding = "UTF-8")
+source("00_FUNZIONI_genera.R", encoding = "UTF-8")
+source("01_inu_variabili.R", encoding = "UTF-8")
+
+```
+
+```{r global_options, include = FALSE}
+
+options(knitr.table.format = "html")
+
+knitr::opts_chunk$set(dev="png", fig.width=6, fig.height=1.85, fig.align='left', fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE)
+
+```
+
+```{r include = FALSE}
+
+# Creo un file .Rmd per il settore industriale, in Ticino
+vars.settore.x <- vars.settore[1]
+sotto.cap.x<- settori[1]
+dove.x <- dove[1]
+vars.dove.x <- vars.dove[1]
+
+```
+
+```{r include = FALSE}
+
+### 3.0
+# Indicatore sintetico, situazione attuale
+vars.x = vars.q1[10]
+riferimento.x <- riferimenti[1]
+capitolo.x <- capitoli[17]
+domanda.x <- capitoli_[7]
+ris.x <- risposte00[1, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_SINT(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex_SINT(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+# SITUAZIONE ATTUALE {.storyboard}
+
+### Industria, in Ticino<br> **INDICATORE SINTETICO | **Situazione attuale ... ... ... . <br><br> *course_bus* {data-commentary-width=750}
+
+```{r t.00}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.00}
+sintesi
+```
+
+<br>
+
+```{r p.00.1}
+p1
+```
+
+<br>
+
+```{r p.00.2}
+p2
+```
+
+<br>
+
+```{r p.00.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.1
+# Situazione degli affari, situazione attuale
+vars.x = vars.q1[1]
+capitolo.x <- capitoli[1]
+domanda.x <- capitoli_[1]
+riferimento.x <- riferimenti[1]
+ris.x <- risposte00[1, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **SITUAZIONE DEGLI AFFARI | **Situazione attuale ... ... ... . <br><br> *q_ql_ass_bs* {data-commentary-width=750}
+
+```{r t.01}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.01}
+sintesi
+```
+
+<br>
+
+```{r p.01.1}
+p1
+```
+
+<br>
+
+```{r p.01.2}
+p2
+```
+
+<br>
+
+```{r p.01.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.2
+# Volume degli ordini, situazione attuale
+vars.x = vars.q1[2]
+capitolo.x <- capitoli[3]
+ris.x <- risposte00[3, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **VOLUME COMPLESSIVO DEGLI ORDINI | **Situazione attuale ... ... ... . <br><br> *q_ql_ass_order_blog* {data-commentary-width=750}
+
+```{r t.02}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.02}
+sintesi
+```
+
+<br>
+
+```{r p.02.1}
+p1
+```
+
+<br>
+
+```{r p.02.2}
+p2
+```
+
+<br>
+
+```{r p.02.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.3
+# Ordini dall'estero, situazione attuale
+vars.x = vars.q1[3]
+capitolo.x <- capitoli[4]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex2(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **VOLUME DEGLI ORDINI DALL ESTERO | **Situazione attuale ... ... ... . <br><br> *q_ql_ass_order_blog_fgn* {data-commentary-width=750}
+
+```{r t.03}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.03}
+sintesi
+```
+
+<br>
+
+```{r p.03.1}
+p1
+```
+
+<br>
+
+```{r p.03.2}
+p2
+```
+
+<br>
+
+```{r p.03.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.4
+# Occupazione, situazione attuale
+vars.x = vars.q1[4]
+capitolo.x <- capitoli[8]
+domanda.x <- capitoli_[4]
+ris.x <- risposte03[3, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex2(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **OCCUPAZIONE | **Situazione attuale ... ... ... . <br><br> *q_ql_ass_empl* {data-commentary-width=750}
+
+```{r t.04}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.04}
+sintesi
+```
+
+<br>
+
+```{r p.04.1}
+p1
+```
+
+<br>
+
+```{r p.04.2}
+p2
+```
+
+<br>
+
+```{r p.04.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.5
+# Acquisizione di ordini, situazione attuale su base annua
+vars.x = vars.q1[5]
+capitolo.x <- capitoli[2]
+riferimento.x <- riferimenti[5]
+domanda.x <- capitoli_[6]
+ris.x <- risposte00[2, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                  domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **ACQUISIZIONE DI ORDINI | **Valutazione su base annua ... ... ... . <br><br> *q_ql_chg_order_in_pmpym* {data-commentary-width=750}
+
+```{r t.05}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.05}
+sintesi
+```
+
+<br>
+
+```{r p.05.1}
+p1
+```
+
+<br>
+
+```{r p.05.2}
+p2
+```
+
+<br>
+
+```{r p.05.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.6
+# Produzione, situazione attuale su base annua
+vars.x = vars.q1[6]
+capitolo.x <- capitoli[5]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                  domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **PRODUZIONE | **Valutazione su base annua ... ... ... . <br><br> *q_ql_chg_prod_pmpym* {data-commentary-width=750}
+
+```{r t.06}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.06}
+sintesi
+```
+
+<br>
+
+```{r p.06.1}
+p1
+```
+
+<br>
+
+```{r p.06.2}
+p2
+```
+
+<br>
+
+```{r p.06.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.7
+# Stock prodotti finiti, situazione attuale
+vars.x = vars.q1[7]
+capitolo.x <- capitoli[6]
+riferimento.x <- riferimenti[1]
+ris.x <- risposte00[6, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex2(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **STOCK DI PRODOTTI FINITI | **Situazione attuale ... ... ... . <br><br> *q_ql_ass_stock_fin* {data-commentary-width=750}
+
+```{r t.07}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.07}
+sintesi
+```
+
+<br>
+
+```{r p.07.1}
+p1
+```
+
+<br>
+
+```{r p.07.2}
+p2
+```
+
+<br>
+
+```{r p.07.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.07b
+# Stock prodotti intermedi, situazione attuale
+vars.x = vars.q1[8]
+capitolo.x <- capitoli[7]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex2(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **STOCK DI PRODOTTI INTERMEDI | **Situazione attuale ... ... ... . <br><br> *q_ql_ass_stock_intermed* {data-commentary-width=750}
+
+```{r t.07b}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.07b}
+sintesi
+```
+
+<br>
+
+```{r p.07b.1}
+p1
+```
+
+<br>
+
+```{r p.07b.2}
+p2
+```
+
+<br>
+
+```{r p.07b.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.07c
+# Capacità tecniche, situazione attuale
+vars.x = vars.q1[9]
+capitolo.x <- capitoli[9]
+ris.x <- risposte03[1, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex2(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **CAPACITA TECNICHE | **Situazione attuale ... ... ... . <br><br> *q_ql_ass_tech_cap* {data-commentary-width=750}
+
+```{r t.07c}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.07c}
+sintesi
+```
+
+<br>
+
+```{r p.07c.1}
+p1
+```
+
+<br>
+
+```{r p.07c.2}
+p2
+```
+
+<br>
+
+```{r p.07c.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.8
+# Situazione reddituale, ultimi tre mesi
+vars.x = vars.q2[1]
+capitolo.x <- capitoli[13]
+riferimento.x <- riferimenti[2]
+domanda.x <- capitoli_[2]
+ris.x <- risposte01[2, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+# ULTIMI TRE MESI {.storyboard}
+
+### Industria, in Ticino<br> **SITUAZIONE REDDITUALE | **Ultimi tre mesi ... ... ... . <br><br> *q_ql_chg_profit_p3m* {data-commentary-width=750}
+
+```{r t.08}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.08}
+sintesi
+```
+
+<br>
+
+```{r p.08.1}
+p1
+```
+
+<br>
+
+```{r p.08.2}
+p2
+```
+
+<br>
+
+```{r p.08.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.9
+# Prezzi di vendita, ultimi tre mesi
+vars.x = vars.q2[2]
+capitolo.x <- capitoli[10]
+ris.x <- risposte03[5, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **PREZZI DI VENDITA | **Ultimi tre mesi ... ... ... . <br><br> *q_ql_chg_price_sales_p3m* {data-commentary-width=750}
+
+```{r t.09}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.09}
+sintesi
+```
+
+<br>
+
+```{r p.09.1}
+p1
+```
+
+<br>
+
+```{r p.09.2}
+p2
+```
+
+<br>
+
+```{r p.09.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.10
+# Posizione concorrenziale (in Svizzera), ultimi tre mesi
+vars.x = vars.q2[3]
+capitolo.x <- capitoli[14]
+ris.x <- risposte01[2, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **POSIZIONE CONCORRENZIALE, IN CH | **Ultimi tre mesi ... ... ... . <br><br> *q_ql_chg_compet_ch_p3m* {data-commentary-width=750}
+
+```{r t.10}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.10}
+sintesi
+```
+
+<br>
+
+```{r p.10.1}
+p1
+```
+
+<br>
+
+```{r p.10.2}
+p2
+```
+
+<br>
+
+```{r p.10.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.11
+# Posizione concorrenziale (all'interno dell'UE), ultimi tre mesi
+vars.x = vars.q2[4]
+capitolo.x <- capitoli[15]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **POSIZIONE CONCORRENZIALE, NELL UE | **Ultimi tre mesi ... ... ... . <br><br> *q_ql_chg_compet_eu_p3m* {data-commentary-width=750}
+
+```{r t.11}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.11}
+sintesi
+```
+
+<br>
+
+```{r p.11.1}
+p1
+```
+
+<br>
+
+```{r p.11.2}
+p2
+```
+
+<br>
+
+```{r p.11.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.12
+# Posizione concorrenziale (all'esterno dell'UE), ultimi tre mesi
+vars.x = vars.q2[5]
+capitolo.x <- capitoli[16]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **POSIZIONE CONCORRENZIALE, FUORI DALLA UE | **Ultimi tre mesi ... ... ... . <br><br> *q_ql_chg_compet_non_eu_p3m* {data-commentary-width=750}
+
+```{r t.12}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.12}
+sintesi
+```
+
+<br>
+
+```{r p.12.1}
+p1
+```
+
+<br>
+
+```{r p.12.2}
+p2
+```
+
+<br>
+
+```{r p.12.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.14
+# Capacità tecniche, ultimi tre mesi
+vars.x = vars.q2[6]
+capitolo.x <- capitoli[9]
+ris.x <- risposte03[6, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **CAPACITA TECNICHE | **Ultimi tre mesi ... ... ... . <br><br> *q_ql_chg_tech_cap_p3m* {data-commentary-width=750}
+
+```{r t.14}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.14}
+sintesi
+```
+
+<br>
+
+```{r p.14.1}
+p1
+```
+
+<br>
+
+```{r p.14.2}
+p2
+```
+
+<br>
+
+```{r p.14.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.15
+# Situazione degli affari, prossimi sei mesi
+vars.x = vars.q3[1]
+capitolo.x <- capitoli[1]
+domanda.x <- capitoli_[3]
+riferimento.x <- riferimenti[4]
+ris.x <- risposte01[6, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+# PROSSIMI SEI MESI {.storyboard}
+
+### Industria, in Ticino<br> **SITUAZIONE DEGLI AFFARI | **Prossimi sei mesi ... ... ... . <br><br> *q_ql_exp_chg_bs_n6m* {data-commentary-width=750}
+
+```{r t.15}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.15}
+sintesi
+```
+
+<br>
+
+```{r p.15.1}
+p1
+```
+
+<br>
+
+```{r p.15.2}
+p2
+```
+
+<br>
+
+```{r p.15.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.16
+# Volume degli ordini, prossimi tre mesi
+vars.x = vars.q3[2]
+capitolo.x <- capitoli[3]
+riferimento.x <- riferimenti[3]
+ris.x <- risposte02[3, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **VOLUME COMPLESSIVO DEGLI ORDINI | **Prossimi tre mesi ... ... ... . <br><br> *q_ql_exp_chg_order_in_n3m* {data-commentary-width=750}
+
+```{r t.16}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.16}
+sintesi
+```
+
+<br>
+
+```{r p.16.1}
+p1
+```
+
+<br>
+
+```{r p.16.2}
+p2
+```
+
+<br>
+
+```{r p.16.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.17
+# Volume degli ordini dall'estero, prossimi tre mesi
+vars.x = vars.q3[3]
+capitolo.x <- capitoli[4]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **VOLUME DEGLI ORDINI DALL ESTERO | **Prossimi tre mesi ... ... ... . <br><br> *q_ql_exp_chg_export_n3m* {data-commentary-width=750}
+
+```{r t.17}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.17}
+sintesi
+```
+
+<br>
+
+```{r p.17.1}
+p1
+```
+
+<br>
+
+```{r p.17.2}
+p2
+```
+
+<br>
+
+```{r p.17.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.18
+# Occupazione, prossimi tre mesi
+vars.x = vars.q3[4]
+capitolo.x <- capitoli[8]
+domanda.x <- capitoli_[5]
+ris.x <- risposte02[3, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **OCCUPAZIONE | **Prossimi tre mesi ... ... ... . <br><br> *q_ql_exp_chg_empl_n3m* {data-commentary-width=750}
+
+```{r t.18}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.18}
+sintesi
+```
+
+<br>
+
+```{r p.18.1}
+p1
+```
+
+<br>
+
+```{r p.18.2}
+p2
+```
+
+<br>
+
+```{r p.18.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.19
+# Produzione, prossimi tre mesi
+vars.x = vars.q3[5]
+capitolo.x <- capitoli[5]
+domanda.x <- capitoli_[3]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **PRODUZIONE | **Prossimi tre mesi ... ... ... . <br><br> *q_ql_exp_chg_prod_n3m* {data-commentary-width=750}
+
+```{r t.19}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.19}
+sintesi
+```
+
+<br>
+
+```{r p.19.1}
+p1
+```
+
+<br>
+
+```{r p.19.2}
+p2
+```
+
+<br>
+
+```{r p.19.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.20
+# Acquisto di prodotti non finiti, prossimi tre mesi
+vars.x = vars.q3[6]
+capitolo.x <- capitoli[12]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **ACQUISTO DI PRODOTTI NON FINITI | **Prossimi tre mesi ... ... ... . <br><br> *q_ql_exp_chg_pur_intermed_n3m* {data-commentary-width=750}
+
+```{r t.20}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.20}
+sintesi
+```
+
+<br>
+
+```{r p.20.1}
+p1
+```
+
+<br>
+
+```{r p.20.2}
+p2
+```
+
+<br>
+
+```{r p.20.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.21
+# Prezzi di vendita, prossimi tre mesi
+vars.x = vars.q3[7]
+capitolo.x <- capitoli[10]
+ris.x <- risposte03[8, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **PREZZI DI VENDITA | **Prossimi tre mesi ... ... ... . <br><br> *q_ql_exp_chg_price_sales_n3m* {data-commentary-width=750}
+
+```{r t.21}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.21}
+sintesi
+```
+
+<br>
+
+```{r p.21.1}
+p1
+```
+
+<br>
+
+```{r p.21.2}
+p2
+```
+
+<br>
+
+```{r p.21.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.22
+# Prezzi di acquisto, prossimi tre mesi
+vars.x = vars.q3[8]
+capitolo.x <- capitoli[11]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof_trim(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex2(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **PREZZI DI ACQUISTO | **Prossimi tre mesi ... ... ... . <br><br> *q_ql_exp_chg_price_pur_n3m* {data-commentary-width=750}
+
+```{r t.22}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.22}
+sintesi
+```
+
+<br>
+
+```{r p.22.1}
+p1
+```
+
+<br>
+
+```{r p.22.2}
+p2
+```
+
+<br>
+
+```{r p.22.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.23
+# Acqusizione di ordini, sit.attuale vs. mese precedente
+vars.x = vars.q4[1]
+riferimento.x <- riferimenti[6]
+capitolo.x <- capitoli[2]
+domanda.x <- capitoli_[2]
+ris.x <- risposte00[2, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+# VAL. RISPETTO AL MESE PRECEDENTE {.storyboard}
+
+### Industria, in Ticino<br> **ACQUISIZIONE DI ORDINI | **Val. rispetto al mese precedente ... ... ... . <br><br> *q_ql_chg_order_in_pmppm* {data-commentary-width=750}
+
+```{r t.23}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.23}
+sintesi
+```
+
+<br>
+
+```{r p.23.1}
+p1
+```
+
+<br>
+
+```{r p.23.2}
+p2
+```
+
+<br>
+
+```{r p.23.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.24
+# Volume degli ordini, sit.attuale vs. mese precedente
+vars.x = vars.q4[2]
+capitolo.x <- capitoli[3]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **VOLUME COMPLESSIVO DEGLI ORDINI | **Val. rispetto al mese precedente ... ... ... . <br><br> *q_ql_chg_order_blog_pmppm* {data-commentary-width=750}
+
+```{r t.24}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.24}
+sintesi
+```
+
+<br>
+
+```{r p.24.1}
+p1
+```
+
+<br>
+
+```{r p.24.2}
+p2
+```
+
+<br>
+
+```{r p.24.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.25
+# Produzione, sit.attuale  vs. mese precedente
+vars.x = vars.q4[3]
+capitolo.x <- capitoli[5]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **PRODUZIONE | **Val. rispetto al mese precedente ... ... ... . <br><br> *q_ql_chg_prod_pmppm* {data-commentary-width=750}
+
+```{r t.25}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.25}
+sintesi
+```
+
+<br>
+
+```{r p.25.1}
+p1
+```
+
+<br>
+
+```{r p.25.2}
+p2
+```
+
+<br>
+
+```{r p.25.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.26
+# Stock prodotti finiti, sit.attuale  vs. mese precedente
+vars.x = vars.q4[4]
+capitolo.x <- capitoli[6]
+ris.x <- risposte03[4, ]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex2(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **STOCK DI PRODOTTI FINITI | **Val. rispetto al mese precedente ... ... ... . <br><br> *q_ql_chg_stock_fin_pmppm* {data-commentary-width=750}
+
+```{r t.26}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.26}
+sintesi
+```
+
+<br>
+
+```{r p.26.1}
+p1
+```
+
+<br>
+
+```{r p.26.2}
+p2
+```
+
+<br>
+
+```{r p.26.3}
+p3
+```
+
+
+```{r include = FALSE}
+
+### 3.27
+# Stock prodotti intermedi, sit.attuale vs. mese precedente
+vars.x = vars.q4[5]
+capitolo.x <- capitoli[7]
+
+testi <- c(riferimento.x, paste0(sotto.cap.x, ", ", dove.x), capitolo.x, riferimento.x)
+
+tmp <- dati_kof(d, vars.x, vars.dove.x, vars.settore.x)
+
+z <- genera_flex2(tmp, inchiesta, vars.x, dove.x, vars.dove.x, capitolo.x,
+                 domanda.x, riferimento.x, sotto.cap.x, ris.x, testi)
+
+
+tabella <- z$t
+sintesi <- z$table
+p1 <- z$p[[1]]
+p2 <- z$p[[2]]
+p3 <- z$p[[3]]
+
+```
+
+
+### Industria, in Ticino<br> **STOCK DI PRODOTTI INTERMEDI | **Val. rispetto al mese precedente ... ... ... . <br><br> *q_ql_chg_stock_intermed_pmppm* {data-commentary-width=750}
+
+```{r t.27}
+tabella
+```
+
+
+***
+
+**KOF**, inchiesta congiunturale: aprile 2020, in Ticino
+
+
+```{r table.27}
+sintesi
+```
+
+<br>
+
+```{r p.27.1}
+p1
+```
+
+<br>
+
+```{r p.27.2}
+p2
+```
+
+<br>
+
+```{r p.27.3}
+p3
+```
+
+
+
